@@ -1,7 +1,5 @@
 from db.models.documents import Documents
-# from db.models.users import Users
 from db.models.users import Users
-from repositories.users import UsersRepository
 from schemas.documents import DocumentAddRequest
 from utils.repository import AbstractRepository
 
