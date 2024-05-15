@@ -44,5 +44,5 @@ async def get_user(
         )
         
     except Exception as e:
-        await handle_route_error(e, status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        await handle_route_error(e, status_code=status.HTTP_404_NOT_FOUND)
         

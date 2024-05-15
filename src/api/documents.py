@@ -26,3 +26,11 @@ async def add_document(
     except Exception as e:
         await handle_route_error(e, status_code=status.HTTP_400_BAD_REQUEST)
 
+
+@router.get('')
+async def get_document_by_user_email(
+    document_service: Annotated[DocumentsService, Depends(documents_service)],
+    user_email: str
+):
+    ...
+

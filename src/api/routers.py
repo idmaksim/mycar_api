@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from . import users
+from . import users, documents
 
 
 main_api_router = APIRouter(
@@ -7,7 +7,8 @@ main_api_router = APIRouter(
 )
 
 routers = [
-    users.router
+    users.router,
+    documents.router
 ]
 
 [main_api_router.include_router(router) for router in routers]
