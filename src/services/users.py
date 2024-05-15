@@ -16,7 +16,8 @@ class UsersService:
     
     async def get_one(self, email: str, password: str):
         user: Users = await self.users_repo.get_one_by_data(email=email, password=password)
-        user.__delattr__('password')
+        if user:
+            user.__delattr__('password')
         return user
     
     
