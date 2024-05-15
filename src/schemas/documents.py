@@ -11,3 +11,4 @@ class DocumentAddRequest(BaseModel):
     number: str
     where_issued: str
     categories: str 
+    user_id: int    

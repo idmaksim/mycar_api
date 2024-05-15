@@ -1,5 +1,5 @@
 import datetime
-from sqlalchemy import Column, Integer, String, Date
+from sqlalchemy import Column, ForeignKey, Integer, String, Date
 
 from ..db import Base
 
@@ -15,3 +15,4 @@ class Documents(Base):
     number: str = Column(String, nullable=False, unique=True)
     where_issued: str = Column(String, nullable=False)
     categories: str = Column(String, nullable=False)
+    user_id: int = Column(Integer, ForeignKey('users.id'), nullable=False)

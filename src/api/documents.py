@@ -20,7 +20,7 @@ async def add_document(
 ):
     try:
 
-        new_document = await document_service.add_user(document)
+        new_document = await document_service.add_document(document)
         return new_document
     
     except Exception as e:
@@ -32,5 +32,10 @@ async def get_document_by_user_email(
     document_service: Annotated[DocumentsService, Depends(documents_service)],
     user_email: str
 ):
-    ...
+    try:
+        document = await document_service.get_by_user_email(user_email)
+        return document
+    
+    except Exception as e:
+        await handle_route_error(e, status_code=status.HTTP_404_NOT_FOUND)
 

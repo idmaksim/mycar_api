@@ -9,4 +9,4 @@ def users_service():
 
 
 def documents_service():
-    return DocumentsService(DocumentsRepository)
+    return DocumentsService(DocumentsRepository, UsersRepository)
