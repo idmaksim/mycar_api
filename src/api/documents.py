@@ -33,7 +33,12 @@ async def get_document_by_user_email(
 ):
     try:
         document = await document_service.get_by_user_email(user_email)
-        return document
+        if document:
+            return document
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail='document not found'
+        )
     
     except Exception as e:
         await handle_route_error(e, status_code=status.HTTP_404_NOT_FOUND)
