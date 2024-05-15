@@ -19,7 +19,6 @@ async def add_document(
     document_service: Annotated[DocumentsService, Depends(documents_service)],
 ):
     try:
-
         new_document = await document_service.add_document(document)
         return new_document
     
