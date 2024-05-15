@@ -1,12 +1,12 @@
 from sqlalchemy import Column, Integer, String
 
-from ..db import Base
+from db.db import Base
 
 
 class Users(Base):
     __tablename__ = 'users'
 
-    id = Column(Integer, primary_key=True, unique=True, autoincrement=True, nullable=False)
+    
     username: str = Column(String, unique=True, nullable=False)
     name: str = Column(String, nullable=False)
     phone_number: str = Column(String, nullable=False)
