@@ -5,7 +5,7 @@ from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_asyn
 from sqlalchemy.orm import DeclarativeBase
 
 
-DATABASE_URL = "sqlite+aiosqlite:///./test.db" # switch to "sqlite+aiosqlite:///./test.db" if you using Windows
+DATABASE_URL = "sqlite+aiosqlite:///./test.db"
 
 
 class Base(DeclarativeBase):

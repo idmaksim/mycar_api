@@ -21,10 +21,6 @@ class AbstractRepository(ABC):
     async def get_one_by_data():
         raise NotImplementedError
     
-    @abstractmethod
-    async def delete_one_by_id():
-        raise NotImplementedError
-    
 
 class SQLAlchemyRepository(AbstractRepository):
     model = None
@@ -36,7 +32,7 @@ class SQLAlchemyRepository(AbstractRepository):
             await session.commit()
             return res.scalar_one()
     
-    async def get_all(self, limit: int = 10):
+    async def get_all(self, limit: int = 3):
         async with async_session_maker() as session:
             stmt = select(self.model).where(self.model.id <= limit)
             res = await session.execute(statement=stmt)
