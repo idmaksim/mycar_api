@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from . import users, documents
+from api import users, documents
 
 
 main_api_router = APIRouter(

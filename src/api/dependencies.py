@@ -1,7 +1,7 @@
-from ..repositories.documents import DocumentsRepository
-from ..repositories.users import UsersRepository
-from ..services.documents import DocumentsService
-from ..services.users import UsersService
+from repositories.documents import DocumentsRepository
+from repositories.users import UsersRepository
+from services.documents import DocumentsService
+from services.users import UsersService
 
 
 def users_service():

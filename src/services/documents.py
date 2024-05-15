@@ -1,7 +1,7 @@
-from ..db.models.documents import Documents
-from ..db.models.users import Users
-from ..schemas.documents import DocumentAddRequest
-from ..utils.repository import AbstractRepository
+from db.models.documents import Documents
+from db.models.users import Users
+from schemas.documents import DocumentAddRequest
+from utils.repository import AbstractRepository
 
 
 class DocumentsService:
