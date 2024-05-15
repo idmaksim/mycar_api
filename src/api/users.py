@@ -4,7 +4,6 @@ from fastapi import APIRouter, Depends, HTTPException, Query, status, Background
 from api.dependencies import users_service
 from schemas.users import UserAddRequest
 from services.users import UsersService
-from utils.background_tasks import sample_bg_task
 from utils.error_handler import handle_route_error
 
 
@@ -18,7 +17,6 @@ router = APIRouter(
 async def add_user(
     user: UserAddRequest,
     user_service: Annotated[UsersService, Depends(users_service)],
-    backdorund_tasks: BackgroundTasks
 ):
     try:
 
