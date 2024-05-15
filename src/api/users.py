@@ -21,8 +21,7 @@ async def add_user(
     backdorund_tasks: BackgroundTasks
 ):
     try:
-        backdorund_tasks.add_task(sample_bg_task, message=f'adding user {user}!')
-        
+
         new_user = await user_service.add_user(user)
         return new_user
     
