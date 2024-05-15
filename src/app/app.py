@@ -2,7 +2,8 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 
-from db.db import create_db_and_tables
+# from mycardb.db import create_db_and_tables
+from src.db.db import create_db_and_tables
 from api.routers import main_api_router
 
 
