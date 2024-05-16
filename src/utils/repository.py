@@ -57,4 +57,9 @@ class SQLAlchemyRepository(AbstractRepository):
             await session.commit()
             return res.scalar()
         
+# TODO
+"""
+write repository extends from AbstractRepo names ImageRepo
+"""
+        
             
