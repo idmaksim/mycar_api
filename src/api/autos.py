@@ -1,9 +1,8 @@
 from typing import Annotated
-from fastapi import APIRouter, Depends, HTTPException, Query, status, BackgroundTasks
+from fastapi import APIRouter, Depends, HTTPException, status
 
-from api.dependencies import documents_service
-from schemas.documents import DocumentAddRequest
-from services.documents import DocumentsService
+from api.dependencies import autos_service
+from services.autos import AutosService
 from utils.error_handler import handle_route_error
 
 
@@ -15,6 +14,19 @@ router = APIRouter(
 
 @router.get('/all')
 async def get_all_autos(
-
+    auto_service: Annotated[AutosService, Depends(autos_service)],
+    limit: Annotated[int, 3]
 ):
-    ...
+    try:
+        
+        autos = await auto_service.get_all(limit)
+        if autos:
+            return autos
+        raise HTTPException(
+            detail='autos not found',
+            status_code=status.HTTP_404_NOT_FOUND
+        )
+
+
+    except Exception as e:
+        await handle_route_error(e, status.HTTP_404_NOT_FOUND)

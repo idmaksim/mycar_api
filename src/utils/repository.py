@@ -32,7 +32,7 @@ class SQLAlchemyRepository(AbstractRepository):
             await session.commit()
             return res.scalar_one()
     
-    async def get_all(self, limit: int = 3):
+    async def get_all(self, limit: int):
         async with async_session_maker() as session:
             stmt = select(self.model).where(self.model.id <= limit)
             res = await session.execute(statement=stmt)
