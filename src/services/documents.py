@@ -13,7 +13,7 @@ class DocumentsService:
         doc_dict = document.model_dump()
         new_doc: Documents = await self.docs_repo.add_one(doc_dict)
         return new_doc
-    
+
     async def get_by_user_email(self, user_email: str):
         user: Users = await self.user_repo.get_one_by_data(email=user_email)
         if user:

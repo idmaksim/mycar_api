@@ -22,7 +22,7 @@ async def add_user(
 
         new_user = await user_service.add_user(user)
         return new_user
-    
+
     except Exception as e:
         await handle_route_error(e, status_code=status.HTTP_400_BAD_REQUEST)
 
@@ -37,12 +37,11 @@ async def get_user(
         user = await user_service.get_one(email=email, password=password)
         if user:
             return user
-        
+
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
             detail='user not found'
         )
-        
+
     except Exception as e:
         await handle_route_error(e, status_code=status.HTTP_404_NOT_FOUND)
-        

@@ -19,7 +19,7 @@ async def get_all_autos(
     limit: Annotated[int, 3]
 ):
     try:
-        
+
         autos = await auto_service.get_all(limit)
         if autos:
             return autos
@@ -27,7 +27,6 @@ async def get_all_autos(
             detail='autos not found',
             status_code=status.HTTP_404_NOT_FOUND
         )
-
 
     except Exception as e:
         await handle_route_error(e, status.HTTP_404_NOT_FOUND)

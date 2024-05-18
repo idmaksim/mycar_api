@@ -13,7 +13,8 @@ class Base(DeclarativeBase):
         'extend_existing': True
     }
 
-    id = Column(Integer, primary_key=True, unique=True, autoincrement=True, nullable=False)
+    id = Column(Integer, primary_key=True, unique=True,
+                autoincrement=True, nullable=False)
 
 
 engine = create_async_engine(DATABASE_URL)
