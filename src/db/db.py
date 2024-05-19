@@ -4,6 +4,7 @@ from sqlalchemy.orm import DeclarativeBase
 
 
 DATABASE_URL = "sqlite+aiosqlite:///././test.db"
+DATABASE_URL = "postgresql+asyncpg://postgres:pass123@127.0.0.1:5432/mycar"
 
 
 class Base(DeclarativeBase):

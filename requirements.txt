@@ -1,5 +1,7 @@
 fastapi[all]
 sqlalchemy
-psycopg2-binary
+# psycopg2
+asyncpg
+#-binary
 python-multipart
 aiosqlite
