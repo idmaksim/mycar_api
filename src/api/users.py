@@ -19,6 +19,7 @@ async def add_user(
     user_service: Annotated[UsersService, Depends(users_service)],
 ):
     try:
+        print(user.email)
 
         new_user = await user_service.add_user(user)
         return new_user
