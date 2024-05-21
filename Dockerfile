@@ -8,6 +8,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-VOLUME [ "test.db" ]
-
-CMD ["python3", "src/main.py"]
+CMD ["fastapi", "run", "src/app.py", "--port", "8090"]
