@@ -8,11 +8,11 @@ class Documents(Base):
     __tablename__ = 'documents'
 
     name: str = Column(String, nullable=False)
-    birth_date: datetime.date = Column(Date, nullable=False)
+    birth_date: datetime.date = Column(Date, nullable=True)
     date_of_issue: datetime.date = Column(Date, nullable=False)
-    end_date: datetime.date = Column(Date, nullable=False)
-    issued_by: str = Column(String, nullable=False) 
-    number: str = Column(String, nullable=False, unique=True)
-    where_issued: str = Column(String, nullable=False)
-    categories: str = Column(String, nullable=False)
+    end_date: datetime.date = Column(Date, nullable=True)
+    issued_by: str = Column(String, nullable=True) 
+    number: str = Column(String, nullable=True, unique=True)
+    where_issued: str = Column(String, nullable=True)
+    categories: str = Column(String, nullable=True)
     user_id: int = Column(Integer, ForeignKey('users.id'), nullable=False)

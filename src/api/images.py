@@ -1,5 +1,7 @@
 import os
+from typing import Annotated
 from fastapi import APIRouter
+# from services import 
 
 router = APIRouter(
     prefix="/images",
@@ -13,6 +15,7 @@ if not os.path.exists('images'):
 
 @router.get("")
 async def get_image(
-
+    image_id: int,
+    # service: Annotated[]
 ):
     pass
