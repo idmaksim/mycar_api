@@ -12,8 +12,8 @@ router = APIRouter(
 )
 
 
-if not os.path.exists('../images'):
-    os.mkdir('../images')
+if not os.path.exists('images'):
+    os.mkdir('images')
 
 
 @router.get("")
@@ -23,7 +23,9 @@ async def get_image(
 ):
     try:
         image_path = await service.get_image_path_by_id(image_id)
-        return FileResponse(image_path)
+        if os.path.exists(image_path):
+            return FileResponse(image_path)
+        raise FileNotFoundError(f"Image with id {image_id} not found")
     
     except Exception as e:
         await handle_route_error(e, status_code=status.HTTP_500_INTERNAL_SERVER_ERROR)

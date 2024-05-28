@@ -11,4 +11,4 @@ class ImagesService:
         if image is None:
             raise Exception("Image not found")
         image_name: str = image.filename
-        return '../images/' + image_name + '.jpg'
+        return 'images/' + image_name + '.jpg'
