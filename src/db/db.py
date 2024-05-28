@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer
 from sqlalchemy.ext.asyncio import async_sessionmaker, create_async_engine
 from sqlalchemy.orm import DeclarativeBase
-from utils.config import *
+from utils.config import DB_DRIVER, DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT, DB_USERNAME
 
 
 DATABASE_URL = f"{
@@ -9,12 +9,11 @@ DATABASE_URL = f"{
 
 
 class Base(DeclarativeBase):
-    __table_args__ = {
-        'extend_existing': True
-    }
+    __table_args__ = {"extend_existing": True}
 
-    id = Column(Integer, primary_key=True, unique=True,
-                autoincrement=True, nullable=False)
+    id = Column(
+        Integer, primary_key=True, unique=True, autoincrement=True, nullable=False
+    )
 
 
 engine = create_async_engine(DATABASE_URL)

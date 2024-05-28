@@ -8,6 +8,7 @@ class AutosService:
 
     async def get_all(self, limit: int):
         res = await self.repo.get_all(limit)
+        print(res)
         return res
 
     async def add_one(self, auto: AutoAddRequest):

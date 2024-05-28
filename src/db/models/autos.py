@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String
+from sqlalchemy import Column, ForeignKey, Integer, String
 
 from db.db import Base
 
@@ -6,6 +6,7 @@ from db.db import Base
 class Autos(Base):
     __tablename__ = 'autos'
 
+    img_id: int = Column(Integer, ForeignKey('images.id'), nullable=True) 
     brand: str = Column(String, nullable=False)
     model: str = Column(String, nullable=False)
     enigine: str = Column(String, nullable=False)
@@ -16,4 +17,4 @@ class Autos(Base):
     transmission: str = Column(String, nullable=False)
     drive: str = Column(String, nullable=False)
     wheel: str = Column(String, nullable=False) 
-    vin_number: str = Column(String, nullable=False) 
+    vin_number: str = Column(String, nullable=False)
