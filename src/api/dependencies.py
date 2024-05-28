@@ -1,5 +1,6 @@
 from repositories.autos import AutosRepository
 from repositories.documents import DocumentsRepository
+from repositories.images import ImagesRepository
 from repositories.users import UsersRepository
 from services.autos import AutosService
 from services.documents import DocumentsService
@@ -16,3 +17,7 @@ def documents_service():
 
 def autos_service():
     return AutosService(AutosRepository)
+
+
+def images_service():
+    return images_service(ImagesRepository)
