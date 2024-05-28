@@ -1,5 +1,4 @@
-import datetime
-from sqlalchemy import Column, ForeignKey, Integer, String, Date
+from sqlalchemy import Column, String
 
 from db.db import Base
 

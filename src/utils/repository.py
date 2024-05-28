@@ -26,10 +26,6 @@ class AbstractRepository(ABC):
         raise NotImplementedError
 
 
-class ImageRepository(AbstractRepository):
-    path = None
-
-
 class SQLAlchemyRepository(AbstractRepository):
     model = None
 

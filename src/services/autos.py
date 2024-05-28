@@ -1,4 +1,3 @@
-from db.models.autos import Autos
 from schemas.autos import AutoAddRequest
 from utils.repository import AbstractRepository
 

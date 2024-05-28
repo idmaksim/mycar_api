@@ -1,4 +1,3 @@
-from typing import List
 from db.models.users import Users
 from schemas.users import UserAddRequest
 from utils.repository import AbstractRepository
