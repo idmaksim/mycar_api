@@ -20,3 +20,9 @@ class DocumentsService:
             document: Documents = await self.docs_repo.get_one_by_id(user.id)
             return document
         raise Exception('user with this email doesn\'t found')
+    
+    async def update_by_id(self, id: int, document: DocumentAddRequest):
+        doc_dict = document.model_dump()
+        doc: Documents = await self.docs_repo.update_one_by_id(id, doc_dict)
+        return doc
+

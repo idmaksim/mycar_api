@@ -1,11 +1,10 @@
 from typing import Annotated
-from fastapi import APIRouter, Depends, HTTPException, Query, status
 
 from api.dependencies import users_service
+from fastapi import APIRouter, Depends, HTTPException, status
 from schemas.users import UserAddRequest
 from services.users import UsersService
 from utils.error_handler import handle_route_error
-
 
 router = APIRouter(
     prefix='/users',
@@ -16,11 +15,10 @@ router = APIRouter(
 @router.post('', status_code=status.HTTP_201_CREATED)
 async def add_user(
     user: UserAddRequest,
-    user_service: Annotated[UsersService, Depends(users_service)],
+    service: Annotated[UsersService, Depends(users_service)],
 ):
     try:
-
-        new_user = await user_service.add_user(user)
+        new_user = await service.add_user(user)
         return new_user
 
     except Exception as e:
@@ -29,12 +27,12 @@ async def add_user(
 
 @router.get('', status_code=status.HTTP_200_OK)
 async def get_user(
-    user_service: Annotated[UsersService, Depends(users_service)],
+    service: Annotated[UsersService, Depends(users_service)],
     email: str,
     password: str
 ):
     try:
-        user = await user_service.get_one(email=email, password=password)
+        user = await service.get_one(email=email, password=password)
         if user:
             return user
 
