@@ -4,6 +4,7 @@ from repositories.images import ImagesRepository
 from repositories.users import UsersRepository
 from services.autos import AutosService
 from services.documents import DocumentsService
+from services.images import ImagesService
 from services.users import UsersService
 
 
@@ -20,4 +21,4 @@ def autos_service():
 
 
 def images_service():
-    return images_service(ImagesRepository)
+    return ImagesService(ImagesRepository)
