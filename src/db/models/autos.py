@@ -6,7 +6,6 @@ from db.db import Base
 class Autos(Base):
     __tablename__ = 'autos'
 
-    img_id: int = Column(Integer, ForeignKey('images.id'), nullable=True) 
     brand: str = Column(String, nullable=False)
     model: str = Column(String, nullable=False)
     enigine: str = Column(String, nullable=False)
@@ -18,3 +17,4 @@ class Autos(Base):
     drive: str = Column(String, nullable=False)
     wheel: str = Column(String, nullable=False) 
     vin_number: str = Column(String, nullable=False)
+    # img_id: int = Column(Integer, ForeignKey('images.id'), nullable=False) 

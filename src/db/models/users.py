@@ -11,3 +11,5 @@ class Users(Base):
     phone_number: str = Column(String, nullable=False)
     email: str = Column(String, unique=True, nullable=False)
     password: str = Column(String, nullable=False)
+
+    
