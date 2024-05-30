@@ -1,12 +1,11 @@
-import datetime
 from pydantic import BaseModel, Field
 
 
 class DocumentAddRequest(BaseModel):
     name: str
-    birth_date: datetime.date = Field(default=datetime.date.today())
-    date_of_issue: datetime.date = Field(default=datetime.date.today())
-    end_date: datetime.date = Field(default=datetime.date.today())
+    birth_date: str = Field(default="")
+    date_of_issue: str = Field(default="")
+    end_date: str = Field(default="")
     issued_by: str = Field(default="")
     number: str = Field(default="")
     where_issued: str = Field(default="")
