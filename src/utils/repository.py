@@ -33,6 +33,7 @@ class SQLAlchemyRepository(AbstractRepository):
         async with async_session_maker() as session:
             stmt = update(self.model).where(self.model.id == id).values(**data).returning(self.model)
             res = await session.execute(statement=stmt)
+            await session.commit()
             return res.scalar_one()
 
     async def add_one(self, data: dict):
