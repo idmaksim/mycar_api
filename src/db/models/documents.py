@@ -11,7 +11,7 @@ class Documents(Base):
     date_of_issue: str = Column(String, nullable=True)
     end_date: str = Column(String, nullable=True)
     issued_by: str = Column(String, nullable=True) 
-    number: str = Column(String, nullable=True, unique=True)
+    number: str = Column(String, nullable=True)
     where_issued: str = Column(String, nullable=True)
     categories: str = Column(String, nullable=True)
     user_id: int = Column(Integer, ForeignKey('users.id'), nullable=False)
