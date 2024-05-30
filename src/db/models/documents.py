@@ -8,7 +8,7 @@ class Documents(Base):
 
     name: str = Column(String, nullable=False)
     birth_date: str = Column(String, nullable=True)
-    date_of_issue: str = Column(String, nullable=False)
+    date_of_issue: str = Column(String, nullable=True)
     end_date: str = Column(String, nullable=True)
     issued_by: str = Column(String, nullable=True) 
     number: str = Column(String, nullable=True, unique=True)
