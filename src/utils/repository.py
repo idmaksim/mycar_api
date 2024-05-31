@@ -45,9 +45,9 @@ class SQLAlchemyRepository(AbstractRepository):
 
     async def get_all(self, limit: int):
         async with async_session_maker() as session:
-            stmt = select(self.model).where(self.model.id <= limit)
+            stmt = select(self.model)
             res = await session.execute(statement=stmt)
-            return res.scalars().all()
+            return res.scalars().all()[:limit]
 
     async def get_one_by_id(self, id: int):
         async with async_session_maker() as session:
