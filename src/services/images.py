@@ -7,7 +7,7 @@ class ImagesService:
         self.repo: AbstractRepository = image_repo()
 
     async def get_image_path_by_name(self, image_name: str):
-        image: Images = await self.repo.get_one_by_data(image_name=image_name)
+        image: Images = await self.repo.get_one_by_data(filename=image_name)
         if image is None:
             raise Exception("Image not found")
         image_name: str = image.filename
