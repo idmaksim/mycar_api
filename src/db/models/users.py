@@ -11,8 +11,3 @@ class Users(Base):
     phone_number: str = Column(String, nullable=False)
     email: str = Column(String, unique=True, nullable=False)
     password: str = Column(String, nullable=False)
-
-# class Images(Base):
-#     __tablename__ = "images"
-
-#     filename: str = Column(String, unique=True, nullable=False)
