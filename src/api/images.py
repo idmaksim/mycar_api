@@ -17,7 +17,7 @@ if not os.path.exists('images'):
     os.mkdir('images')
 
 
-@router.get("{image_name}")
+@router.get("/{image_name}")
 async def get_image(
     image_name: str,
     service: Annotated[ImagesService, Depends(images_service)]
