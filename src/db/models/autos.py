@@ -8,7 +8,7 @@ class Autos(Base):
 
     brand: str = Column(String, nullable=False)
     model: str = Column(String, nullable=False)
-    enigine: str = Column(String, nullable=False)
+    engine: str = Column(String, nullable=False)
     release_year: str = Column(String, nullable=False)
     color: str = Column(String, nullable=False)
     body: str = Column(String, nullable=False)

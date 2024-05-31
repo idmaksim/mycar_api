@@ -4,7 +4,7 @@ from pydantic import BaseModel
 class AutoAddRequest(BaseModel):
     brand: str
     model: str
-    enigine: str
+    engine: str
     release_year: str
     color: str
     body: str
