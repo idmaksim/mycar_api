@@ -13,3 +13,4 @@ class AutoAddRequest(BaseModel):
     drive: str
     wheel: str
     vin_number: str
+    img_id: int
