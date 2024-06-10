@@ -20,6 +20,7 @@ class DocumentsService:
 
     async def get_by_user_email(self, user_email: str):
         user: Users = await self.user_repo.get_one_by_data(email=user_email)
+        print(user)
         if user:
             document: Documents = await self.docs_repo.get_one_by_id(user.id)
             return document
