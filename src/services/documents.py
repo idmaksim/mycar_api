@@ -8,6 +8,10 @@ class DocumentsService:
     def __init__(self, document_repo: AbstractRepository, user_repo: AbstractRepository) -> None:
         self.docs_repo: AbstractRepository = document_repo()
         self.user_repo: AbstractRepository = user_repo()
+    
+    async def get_all(self, limit):
+        documents = await self.docs_repo.get_all(limit)
+        return documents
 
     async def add_document(self, document: DocumentAddRequest):
         doc_dict = document.model_dump()

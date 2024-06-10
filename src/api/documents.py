@@ -26,6 +26,18 @@ async def add_document(
         await handle_route_error(e, status_code=status.HTTP_400_BAD_REQUEST)
 
 
+@router.get('/all')
+async def get_all_documents(
+    service: Annotated[DocumentsService, Depends(documents_service)],
+    limit: int
+):
+    try:
+        documents = await service.get_all(limit)
+        return documents
+    except Exception as e:
+        await handle_route_error(e, status_code=status.HTTP_404_NOT_FOUND)
+        
+
 @router.get('')
 async def get_document_by_user_email(
     service: Annotated[DocumentsService, Depends(documents_service)],
