@@ -6,6 +6,7 @@ from schemas.users import UserAddRequest
 from services.users import UsersService
 from utils.error_handler import handle_route_error
 
+
 router = APIRouter(
     prefix='/users',
     tags=['Users']
